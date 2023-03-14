@@ -13,7 +13,7 @@ This is a prototype for small autonomous vehicle.
 
 # Install
 
-Clone repo and install [requirements.txt](https://github.com/Ganesh-tamang/small-autonomous-vehicle/requirements.txt)
+Clone repo and install requirements.txt
 
 ```bash
 https://github.com/Ganesh-tamang/small-autonomous-vehicle.git
