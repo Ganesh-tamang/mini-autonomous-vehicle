@@ -6,7 +6,7 @@ from camera import perspective_transform, undistort
 
 import serial
 def main_process(directions, locations):
-    print(f"directions = {direction}")
+    print(f"directions = {directions}")
     print(f"locations = {locations}")
     
     #serial connection with arduino
