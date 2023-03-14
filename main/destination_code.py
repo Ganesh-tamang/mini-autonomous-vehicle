@@ -60,7 +60,8 @@ class Ui_MainWindow(object):
         self.showmap()
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+        
+        
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -98,8 +99,8 @@ class Ui_MainWindow(object):
         self.webView.setHtml(data.getvalue().decode())
         
         if self.run_main_code:
-            main_process( self.directions, self.locations)
-            
+            main_process( self.directions, self.locations)       
+  
        
 
     def pressed_it(self):
