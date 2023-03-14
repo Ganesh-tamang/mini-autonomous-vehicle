@@ -10,17 +10,19 @@ import io
 import folium 
 from PyQt5.QtWebEngineWidgets import QWebEngineView # pip install PyQtWebEngine
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from main import main_process
 import openrouteservice as ors
 import folium
 import geocoder
 
 # I will change my api key on april 1, 2023. 
 client = ors.Client(key="5b3ce3597851110001cf6248a2eff3cc63f54301b86eb4e6720d4420")
-directions = []
-locations = []
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+        self.run_main_code =False
+        self.directions = []
+        self.locations = []
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -85,6 +87,7 @@ class Ui_MainWindow(object):
             map_directions.add_child(folium.Marker(location=[end_loc.lat,end_loc.lng],popup = "destination",icon = folium.Icon(color = 'red')))
 
             self.show_directions(route)
+            self.run_main_code = True
             
         # add layer control to map (allows layer to be turned on or off)
         folium.LayerControl().add_to(map_directions)
@@ -93,26 +96,31 @@ class Ui_MainWindow(object):
         data = io.BytesIO()
         map_directions.save(data, close_file=False)
         self.webView.setHtml(data.getvalue().decode())
+        
+        if self.run_main_code:
+            main_process( self.directions, self.locations)
+            
        
 
     def pressed_it(self):
+        self.directions = []
+        self.locations = []
         self.showmap(self.lineEdit.text())
+        
     
     def show_directions(self, route):
         for index, i in enumerate(route['features'][0]['properties']['segments'][0]['steps']):
             # print(index+1, i, '\n')
-            directions.append(i["instruction"])
-            locations.append(i["name"])
+            self.directions.append(i["instruction"])
+            self.locations.append(i["name"])
 
 
         
 
-
-def destination_process():
+if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     app.exec_()
-    return directions, locations
