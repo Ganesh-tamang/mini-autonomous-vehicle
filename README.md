@@ -26,7 +26,7 @@ pip install -r requirements.txt  # install
 2. Copy camera matrix to main/camera.py
 3. Plaxe your camera to suitable position such that it shows your lane properly 
 4. Take 4 points of your lane and copy it in src and dst matrix in camera.py perspective transform function
-5. run main.py
+5. run main/destination_code.py
 
 # Future Enchancement:
 1. Use Gps module to exactly know your location instead of using ip address
