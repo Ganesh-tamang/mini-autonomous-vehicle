@@ -3,10 +3,12 @@ import cv2
 
 from lanes_process import Lane
 from camera import perspective_transform, undistort
-from destination_code import destination_process
 
 import serial
-def main_process():
+def main_process(directions, locations):
+    print(f"directions = {direction}")
+    print(f"locations = {locations}")
+    
     #serial connection with arduino
     while True:
             try:
@@ -58,13 +60,6 @@ def main_process():
             break
     cap.release()
     cv2.destroyAllWindows()
-
-if __name__ == '__main__':
-    # //path finding  and directions or route finding
-    directions, locations = destination_process()
-    print(directions)
-    
-    main_process()
     
 
 
