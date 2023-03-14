@@ -6,6 +6,7 @@ from camera import perspective_transform, undistort
 
 import serial
 def main_process(directions, locations):
+#     TODO:: Use directions to control the turn as per the location lat lon. This can be done by embedding GPS module to our car 
     print(f"directions = {directions}")
     print(f"locations = {locations}")
     
@@ -30,12 +31,12 @@ def main_process(directions, locations):
         if ret:
             frame = cv2.rotate(frame, rotateCode=cv2.ROTATE_180)
             undst_image = undistort(frame)
-            #cv2.imshow("undst", undst_image)
+            cv2.imshow("undst", undst_image)
             combined_binary = lane.edge_detection(undst_image)
             transform_image = perspective_transform(combined_binary) 
             crop_image = np.copy(transform_image[200:450,210:440])
             error, image = lane.get_error(crop_image)
-            #cv2.imshow("framee", image)
+            cv2.imshow("framee", image)
             
             steer = error
             # TODO:: change 10 to any other value as per your requirement
@@ -45,12 +46,12 @@ def main_process(directions, locations):
                     # steer value is positive and greater than 10 so,
                     # send a right turn message to arduino
                     ser.write("d".encode("utf-8"))
-                    print("right")
+                    print("right steer")
                 else:
                     # steer value is negative. so,
                     # send a left turn message to arduino
                     ser.write("a".encode("utf-8"))
-                    print("left")
+                    print("left steer")
             else:
                 #  when steer value is between -10 to 10 send move straight signal to arduino 
                 ser.write("w".encode("utf-8"))
