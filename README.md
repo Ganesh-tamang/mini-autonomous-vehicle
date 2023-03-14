@@ -6,10 +6,7 @@ This is a prototype for small autonomous vehicle.
     <a align="center" href="https://github.com/Ganesh-tamang/small-autonomous-vehicle" target="_blank">
   </p>
 
-<br>
-
 <div>
-
 
 # Install
 
@@ -33,10 +30,15 @@ pip install -r requirements.txt  # install
 
 # Circuit diagram
 ![circuit Diagram](./assests/circuit.png)
-Circuit diagram
 
 
-# model prototype
+# Some output
+![route](./assests/route.png)
+
+
+![lane](./assests/lane.png)
+
+
 ![model](./assests/moving.png)
 
 
