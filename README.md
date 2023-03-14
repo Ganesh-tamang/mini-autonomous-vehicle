@@ -30,3 +30,12 @@ pip install -r requirements.txt  # install
 3. Plaxe your camera to suitable position such that it shows your lane properly 
 4. Take 4 points of your lane and copy it in src and dst matrix in camera.py perspective transform function
 5. run main.py
+
+# Future Enchancement:
+1. Use Gps module to exactly know your location instead of using ip address
+2. Use directions value to take turns at prescribed locations. 
+ 
+ TIP: Take location value from Gps module and match it with location list,then turn left or right according to direction value
+
+3. Calculate velocity of others cars in a road
+4. Use more advanced tools like Radar, Lidar,Gps module etc 
