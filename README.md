@@ -31,6 +31,15 @@ pip install -r requirements.txt  # install
     
 5. run main/destination_code.py
 
+# Circuit diagram
+![circuit Diagram](./assests/circuit.png)
+Circuit diagram
+
+
+# model prototype
+![model](./assests/moving.png)
+
+
 # Future Enchancement:
 1. Use Gps module to exactly know your location instead of using ip address
 2. Use directions value to take turns at prescribed locations. 
