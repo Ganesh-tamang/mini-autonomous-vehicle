@@ -24,8 +24,11 @@ pip install -r requirements.txt  # install
 # STEPS TODO:
 1. Camera calibration: Take 20 pictures of chess board from your camera and place the images in images folder. Then, Run camera_calibrate.ipynd as saved camera matrix
 2. Copy camera matrix to main/camera.py
-3. Plaxe your camera to suitable position such that it shows your lane properly 
-4. Take 4 points of your lane and copy it in src and dst matrix in camera.py perspective transform function
+3. Place your camera to suitable position such that it shows your lane properly 
+4. Take 4 points of your lane and transform it in required destnation to do prespective transform.Copy it in src and dst matrix in perspective transform function  in camera.py
+
+    Tips: Place required square material in a lane and, then transform it such that it shows square  after transforming
+    
 5. run main/destination_code.py
 
 # Future Enchancement:
